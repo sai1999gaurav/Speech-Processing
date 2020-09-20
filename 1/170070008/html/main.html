@@ -1,0 +1,255 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>main</title><meta name="generator" content="MATLAB 9.8"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-09-17"><meta name="DC.source" content="main.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">FILES OVERVIEW</a></li><li><a href="#2">Q1</a></li><li><a href="#3">Q2</a></li><li><a href="#4">Q3(a)</a></li><li><a href="#5">Q3(b)</a></li><li><a href="#6">Q3(c)</a></li><li><a href="#7">Q4 low pitch, /a/</a></li><li><a href="#8">Q4 high pitch, /a/</a></li><li><a href="#9">Q4 low pitch, /i/</a></li><li><a href="#10">Q4 high pitch, /i/</a></li><li><a href="#11">Q4 low pitch, /u/</a></li><li><a href="#12">Q4 high pitch, /u/</a></li></ul></div><h2 id="1">FILES OVERVIEW</h2><pre class="codeinput"><span class="comment">%This is the main file wherein each cell runs each (sub)question. The</span>
+<span class="comment">%function files "f1_out.m" and "f2_out.m" are used. All descriptions and</span>
+<span class="comment">%observations are written as comments. All codes files and figures are</span>
+<span class="comment">%published (in html folder). The audio files are saved in "audio" folder.</span>
+</pre><h2 id="2">Q1</h2><pre class="codeinput">fs = 16e3;
+b1 = 200;
+f1 = 900;
+f0 = 140;
+[nz, dz, s_n, y] = f1_out(f0, f1, b1, fs, <span class="string">"Q2"</span>); <span class="comment">%calculates the frequency response and the signal output to</span>
+<span class="comment">%a pulse train for a single formant</span>
+fvtool(nz,dz) <span class="comment">%magnitude response</span>
+fvtool(nz,dz,<span class="string">'Analysis'</span>,<span class="string">'impulse'</span>); <span class="comment">%filter response</span>
+<span class="comment">%H_dtft(w) = H(exp(1j*w));</span>
+</pre><img vspace="5" hspace="5" src="main_01.png" alt=""> <img vspace="5" hspace="5" src="main_02.png" alt=""> <h2 id="3">Q2</h2><pre class="codeinput"><span class="comment">%s_n: Source input signal</span>
+t = 0:1/fs:0.5;
+figure(1), plot(t,s_n);
+xlabel(<span class="string">'time (in s)'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+title(<span class="string">'Periodic input pulse train'</span>);
+t1 = 0:1/fs:3/f0;
+<span class="comment">%y : Output signal</span>
+figure(2), plot(t1, y(1:length(t1)));
+xlabel(<span class="string">'time (in s)'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+title(<span class="string">'Output waveform for 3 pitch periods'</span>);
+<span class="comment">%The same impulse response (found in Q1) is repeated</span>
+<span class="comment">%periodically with period f0. This happends because impulse train is</span>
+<span class="comment">%convolved with the filter response, which results in shifted outputs</span>
+<span class="comment">%around each input impulse locations.</span>
+<span class="comment">%sound_observation</span>
+<span class="comment">%Sound heard is realised to be of constant pitch.</span>
+</pre><img vspace="5" hspace="5" src="main_03.png" alt=""> <img vspace="5" hspace="5" src="main_04.png" alt=""> <h2 id="4">Q3(a)</h2><pre class="codeinput">f0 = 120;
+f1 = 300;
+b1 = 100;
+[~, ~, ~, y] = f1_out(f0, f1, b1, fs, <span class="string">"Q3a"</span>);
+figure(3), subplot(3,1,1)
+t1 = 0:1/fs:3/f0;
+plot(t1, y(1:length(t1)));
+xlabel(<span class="string">'time (in s)'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+title(<span class="string">'Output waveform for 3 pitch periods, F0 = 120 Hz, F1 = 300 Hz, B1 = 100 Hz'</span>);
+<span class="comment">%The oscillation frequency is lower compared to before. Same reason as before</span>
+<span class="comment">%for the nature of waveform.</span>
+<span class="comment">%sound_observation:</span>
+<span class="comment">%The sound frequency has decreased from before.</span>
+</pre><img vspace="5" hspace="5" src="main_05.png" alt=""> <h2 id="5">Q3(b)</h2><pre class="codeinput">f0 = 120;
+f1 = 1200;
+b1 = 100;
+[~, ~, ~, y] = f1_out(f0, f1, b1, fs, <span class="string">"Q3b"</span>);
+subplot(3,1,2)
+t1 = 0:1/fs:3/f0;
+plot(t1, y(1:length(t1)));
+xlabel(<span class="string">'time (in s)'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+title(<span class="string">'Output waveform for 3 pitch periods, F0 = 120 Hz, F1=1200 Hz, B1 = 200 Hz'</span>);
+<span class="comment">%The Oscillation frequency is quite high compared to previous cases. This</span>
+<span class="comment">%is because of higher value of F1. The pitch remains same as before and</span>
+<span class="comment">%hence, the impulse response is repeated with same period.</span>
+<span class="comment">%sound_observation:</span>
+<span class="comment">%The frequency heard has also increased compared to previous two cases.</span>
+</pre><img vspace="5" hspace="5" src="main_06.png" alt=""> <h2 id="6">Q3(c)</h2><pre class="codeinput">f0 = 180;
+f1 = 300;
+b1 = 100;
+[~, ~, ~, y] = f1_out(f0, f1, b1, fs, <span class="string">"Q3c"</span>);
+subplot(3,1,3)
+<span class="comment">%t1 = 0:1/fs:3/f0;</span>
+plot(t1, y(1:length(t1)));
+xlabel(<span class="string">'time (in s)'</span>);
+ylabel(<span class="string">'Amplitude'</span>);
+title(<span class="string">'Output waveform for 5 pitch periods, F0 = 180 Hz, F1 = 300 Hz, B1 = 100 Hz'</span>);
+<span class="comment">%The pitch frequency can clearly be seen to have increased and hence more</span>
+<span class="comment">%impulse responses are observed within same time lengths. Time-domain</span>
+<span class="comment">%alaising is taking place, where adjacent impulse response signals are</span>
+<span class="comment">%getting added and hence is different as compared to 3(a).</span>
+<span class="comment">%sound_observation:</span>
+<span class="comment">%When compared with 3(a), the increase in pitch can be clearly heard.</span>
+</pre><img vspace="5" hspace="5" src="main_07.png" alt=""> <h2 id="7">Q4 low pitch, /a/</h2><p>Sounds are produced in "f2_out.m" function and audio files are stored!!</p><pre class="codeinput">f2_out(120, [730, 1090, 2440], 100, 16e3, <span class="string">"a_lp"</span>);
+</pre><h2 id="8">Q4 high pitch, /a/</h2><pre class="codeinput">f2_out(220, [730, 1090, 2440], 100, 16e3, <span class="string">'a_hp'</span>);
+</pre><h2 id="9">Q4 low pitch, /i/</h2><pre class="codeinput">f2_out(120, [270, 2290, 3010], 100, 16e3, <span class="string">'i_lp'</span>);
+</pre><h2 id="10">Q4 high pitch, /i/</h2><pre class="codeinput">f2_out(220, [270, 2290, 3010], 100, 16e3, <span class="string">'i_hp'</span>);
+</pre><h2 id="11">Q4 low pitch, /u/</h2><pre class="codeinput">f2_out(120,[300, 870, 2240], 100, 16e3, <span class="string">'u_lp'</span>);
+</pre><h2 id="12">Q4 high pitch, /u/</h2><pre class="codeinput">f2_out(220,[300, 870, 2240], 100, 16e3, <span class="string">'u_hp'</span>);
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2020a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% FILES OVERVIEW
+%This is the main file wherein each cell runs each (sub)question. The
+%function files "f1_out.m" and "f2_out.m" are used. All descriptions and
+%observations are written as comments. All codes files and figures are
+%published (in html folder). The audio files are saved in "audio" folder. 
+%% Q1
+fs = 16e3;
+b1 = 200;
+f1 = 900;
+f0 = 140;
+[nz, dz, s_n, y] = f1_out(f0, f1, b1, fs, "Q2"); %calculates the frequency response and the signal output to
+%a pulse train for a single formant
+fvtool(nz,dz) %magnitude response
+fvtool(nz,dz,'Analysis','impulse'); %filter response
+%H_dtft(w) = H(exp(1j*w));
+%% Q2
+%s_n: Source input signal
+t = 0:1/fs:0.5;
+figure(1), plot(t,s_n);
+xlabel('time (in s)');
+ylabel('Amplitude');
+title('Periodic input pulse train');
+t1 = 0:1/fs:3/f0;
+%y : Output signal
+figure(2), plot(t1, y(1:length(t1)));
+xlabel('time (in s)');
+ylabel('Amplitude');
+title('Output waveform for 3 pitch periods');
+%The same impulse response (found in Q1) is repeated
+%periodically with period f0. This happends because impulse train is
+%convolved with the filter response, which results in shifted outputs
+%around each input impulse locations.
+%sound_observation
+%Sound heard is realised to be of constant pitch.
+
+%% Q3(a)
+f0 = 120;
+f1 = 300;
+b1 = 100;
+[~, ~, ~, y] = f1_out(f0, f1, b1, fs, "Q3a");
+figure(3), subplot(3,1,1)
+t1 = 0:1/fs:3/f0;
+plot(t1, y(1:length(t1)));
+xlabel('time (in s)');
+ylabel('Amplitude');
+title('Output waveform for 3 pitch periods, F0 = 120 Hz, F1 = 300 Hz, B1 = 100 Hz');
+%The oscillation frequency is lower compared to before. Same reason as before
+%for the nature of waveform.
+%sound_observation:
+%The sound frequency has decreased from before.
+
+%% Q3(b)
+f0 = 120;
+f1 = 1200;
+b1 = 100;
+[~, ~, ~, y] = f1_out(f0, f1, b1, fs, "Q3b");
+subplot(3,1,2)
+t1 = 0:1/fs:3/f0;
+plot(t1, y(1:length(t1)));
+xlabel('time (in s)');
+ylabel('Amplitude');
+title('Output waveform for 3 pitch periods, F0 = 120 Hz, F1=1200 Hz, B1 = 200 Hz');
+%The Oscillation frequency is quite high compared to previous cases. This
+%is because of higher value of F1. The pitch remains same as before and
+%hence, the impulse response is repeated with same period.
+%sound_observation:
+%The frequency heard has also increased compared to previous two cases.
+
+%% Q3(c)
+f0 = 180;
+f1 = 300;
+b1 = 100;
+[~, ~, ~, y] = f1_out(f0, f1, b1, fs, "Q3c");
+subplot(3,1,3)
+%t1 = 0:1/fs:3/f0;
+plot(t1, y(1:length(t1)));
+xlabel('time (in s)');
+ylabel('Amplitude');
+title('Output waveform for 5 pitch periods, F0 = 180 Hz, F1 = 300 Hz, B1 = 100 Hz');
+%The pitch frequency can clearly be seen to have increased and hence more
+%impulse responses are observed within same time lengths. Time-domain
+%alaising is taking place, where adjacent impulse response signals are
+%getting added and hence is different as compared to 3(a).
+%sound_observation:
+%When compared with 3(a), the increase in pitch can be clearly heard.
+
+%% Q4 low pitch, /a/
+% Sounds are produced in "f2_out.m" function and audio files are stored!!
+f2_out(120, [730, 1090, 2440], 100, 16e3, "a_lp");
+%% Q4 high pitch, /a/
+f2_out(220, [730, 1090, 2440], 100, 16e3, 'a_hp');
+%% Q4 low pitch, /i/
+f2_out(120, [270, 2290, 3010], 100, 16e3, 'i_lp');
+%% Q4 high pitch, /i/
+f2_out(220, [270, 2290, 3010], 100, 16e3, 'i_hp');
+%% Q4 low pitch, /u/
+f2_out(120,[300, 870, 2240], 100, 16e3, 'u_lp');
+%% Q4 high pitch, /u/
+f2_out(220,[300, 870, 2240], 100, 16e3, 'u_hp');
+
+##### SOURCE END #####
+--></body></html>
